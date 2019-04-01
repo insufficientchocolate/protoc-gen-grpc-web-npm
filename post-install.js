@@ -17,7 +17,7 @@ async function run() {
   await fs.ensureDir(BIN_DIR);
   const packageJsonPath = path.resolve(__dirname, 'package.json');
   // const execFilename = 'protoc-gen-grpc-web-' + process.platform + '-x86_64' + EXT;
-  const execFilename = `protoc-gen-grpc-web-${VERSION}-${process.platform}-x86_64${EXT}`;
+  const execFilename = `protoc-gen-grpc-web-${VERSION}-${process.platform == 'win32' ? "windows" : process.platform}-x86_64${EXT}`;
 
   const downloadUrl = DL_PREFIX + VERSION + '/' + execFilename;
 
